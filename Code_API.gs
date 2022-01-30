@@ -19,26 +19,33 @@
  */
 function resetSheetSlicersApi() {
 
-  const ssId = SpreadsheetApp.getActive().getId();
-  const sId = SpreadsheetApp.getActiveSheet().getSheetId();
+  try {
 
-  // 1. Get config information about all slicers in the active sheet
-  const oldSlicers = Sheets.Spreadsheets.get(ssId).sheets.find(sheet => sheet.properties.sheetId == sId).slicers;
+    const ssId = SpreadsheetApp.getActive().getId();
+    const sId = SpreadsheetApp.getActiveSheet().getSheetId();
 
-  // 2. Removes all slicers in the active sheet
-  SpreadsheetApp.getActiveSheet().getSlicers().forEach(slicer => slicer.remove());
-  SpreadsheetApp.flush(); // Mandatory, otherwise new settings do not apply
+    // 1. Get config information about all slicers in the active sheet
+    const oldSlicers = Sheets.Spreadsheets.get(ssId).sheets.find(sheet => sheet.properties.sheetId == sId).slicers;
 
-  // 3. Prepare a Sheets V4 API batch request to create new instances of all slicers
-  const newSlicersRequest = [];
-  oldSlicers.forEach(newSlicer => {
-    newSlicer.slicerId = undefined; // new slicer
-    newSlicer.spec.filterCriteria = undefined; // only needed when filterCriteria has been set programmatically, otherwise this field is ignored, anyway
-    newSlicersRequest.push({ "addSlicer": { "slicer": newSlicer } })
+    // 2. Removes all slicers in the active sheet
+    SpreadsheetApp.getActiveSheet().getSlicers().forEach(slicer => slicer.remove());
+    SpreadsheetApp.flush(); // Mandatory, otherwise new settings do not apply
 
-  });
+    // 3. Prepare a Sheets V4 API batch request to create new instances of all slicers
+    const newSlicersRequest = [];
+    oldSlicers.forEach(newSlicer => {
+      newSlicer.slicerId = undefined; // new slicer
+      newSlicer.spec.filterCriteria = undefined; // only needed when filterCriteria has been set programmatically, otherwise this field is ignored, anyway
+      newSlicersRequest.push({ "addSlicer": { "slicer": newSlicer } })
 
-  // Create new slicers!
-  Sheets.Spreadsheets.batchUpdate({ 'requests': newSlicersRequest }, ssId);
+    });
+
+    // Create new slicers!
+    Sheets.Spreadsheets.batchUpdate({ 'requests': newSlicersRequest }, ssId);
+  
+  } catch (e) {
+    SpreadsheetApp.getActive().toast(`⚠️ Oops:\n${e.message}.`, '🤖 Reset Slicers says:', -1);
+    console.error(e);
+  }
 
 }
