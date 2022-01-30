@@ -5,7 +5,7 @@
  * 
  *    - filterCriteria is not updated when adjustment have been made through the GUI.
  *    - Neither the Spreadsheet Service nor the Sheets v4 API/advanced service can access
- *      or modify the current filter criteria of a slicer whose criteria has already been
+ *      or modify the current filtering criteria of a slicer whose criteria has already been
  *      set manually (using the GUI).
  *    - The plain SpreadSheet Service cannnot access the width and height properties of a slicer.
  * 
@@ -41,7 +41,4 @@ function resetSheetSlicersApi() {
   // Create new slicers!
   Sheets.Spreadsheets.batchUpdate({ 'requests': newSlicersRequest }, ssId);
 
-}
-function flush() {
-  SpreadsheetApp.flush();
 }

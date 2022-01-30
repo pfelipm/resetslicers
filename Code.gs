@@ -4,7 +4,7 @@
  * Context:
  * 
  * Calling setColumnFilterCriteria(columnPosition, null) or trying to modify
- * in some other way the current filter criteria of a slicer whose criteria
+ * in some other way the current filtering criteria of a slicer whose criteria
  * has already been set manually (using the GUI) won't have any effect.
  * So, this function clones & deletes all slicers, instead.
  * 
@@ -50,8 +50,6 @@ function resetSheetSlicers() {
         slicerParams.containerInfo.getOffsetX(),
         slicerParams.containerInfo.getOffsetY());
 
-      console.info(slicerParams.backgroundColor);
-
       // Clone settings
       newSlicer.setTitle(slicerParams.title)
         .setTitleHorizontalAlignment(slicerParams.titleHorizontalAlignment)
@@ -73,7 +71,8 @@ function resetSheetSlicers() {
     SpreadsheetApp.getActive().toast('Process completed.', '🤖 Reset Slicers says:');
 
   } catch (e) {
-    SpreadsheetApp.getActive().toast(`⚠️ Oops:\n${e.message}.`, '🤖 Reset Slicers says:');
+    SpreadsheetApp.getActive().toast(`⚠️ Oops:\n${e.message}.`, '🤖 Reset Slicers says:', -1);
+    console.error(e);
   }
 
 }
