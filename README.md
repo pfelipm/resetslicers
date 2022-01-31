@@ -6,4 +6,4 @@ This is the support repository for my post [Bulk reset slicers in a Google Sprea
 
 ![](https://user-images.githubusercontent.com/12829262/151871996-7d268d15-c522-4bdb-bdae-5aba9213d909.png)
 
-Here you'll find two Apps Script functions that reset (i.e. remove filtering criteria) all slicers in the active sheet of a Google Spreadsheet.
+Here you'll find two Apps Script functions that reset all slicers (i.e. remove filtering criteria) in the active sheet of a Google Spreadsheet.
