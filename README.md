@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/12829262/151871228-68943e21-ae97-4fa9-b0d7-249d0e80ae58.png)
+![](https://user-images.githubusercontent.com/12829262/151871648-a8d08e88-47e3-4bf6-aff8-d131327c3adb.png)
 
 ![Created with - Google Apps Script](https://img.shields.io/static/v1?label=Created+with&message=Google+Apps+Script&color=blue)
 
