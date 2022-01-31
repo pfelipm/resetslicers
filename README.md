@@ -1,3 +1,5 @@
+![](https://user-images.githubusercontent.com/12829262/151871228-68943e21-ae97-4fa9-b0d7-249d0e80ae58.png)
+
 ![Created with - Google Apps Script](https://img.shields.io/static/v1?label=Created+with&message=Google+Apps+Script&color=blue)
 
 # Reset slicers in a Google spreadsheet
