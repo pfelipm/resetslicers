@@ -62,7 +62,7 @@ function resetSheetSlicers() {
         newSlicer.setBackgroundColorObject(slicerParams.backgroundColor);
       }
 
-      // Set slicer filter criteria so that it shows everything
+      // Set slicer filtering criteria so that it shows everything
       newSlicer.setColumnFilterCriteria(slicerParams.columnPosition, SpreadsheetApp.newFilterCriteria().whenFormulaSatisfied('=true')) // hack1: set column and filter to show all rows...
         .setColumnFilterCriteria(slicerParams.columnPosition, null);  // hack2: ...then reset filter
 

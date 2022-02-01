@@ -3,7 +3,7 @@
  *
  * Context:
  * 
- *    - filterCriteria is not updated when adjustment have been made through the GUI.
+ *    - filterCriteria is not updated when adjustments have been applied through the GUI.
  *    - Neither the Spreadsheet Service nor the Sheets v4 API/advanced service can access
  *      or modify the current filtering criteria of a slicer whose criteria has already been
  *      set manually (using the GUI).
