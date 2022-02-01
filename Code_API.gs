@@ -7,7 +7,7 @@
  *    - Neither the Spreadsheet Service nor the Sheets v4 API/advanced service can access
  *      or modify the current filtering criteria of a slicer whose criteria has already been
  *      set manually (using the GUI).
- *    - The plain SpreadSheet Service cannnot access the width and height properties of a slicer.
+ *    - The plain SpreadSheet Service can not access the width and height properties of a slicer.
  * 
  * So, this functions clones & deletes all slicers instead using the Sheets V4 API via its advanced service,
  * which turns out to be *much* faster than using the SpreadSheet Service and can adjust the width and height
