@@ -36,12 +36,12 @@ function resetSheetSlicersApi() {
     oldSlicers.forEach(newSlicer => {
       newSlicer.slicerId = undefined; // new slicer
       newSlicer.spec.filterCriteria = undefined; // only needed when filterCriteria has been set programmatically, otherwise this field is ignored, anyway
-      newSlicersRequest.push({ "addSlicer": { "slicer": newSlicer } })
+      newSlicersRequest.push({ addSlicer: { slicer: newSlicer } })
 
     });
 
     // Create new slicers!
-    Sheets.Spreadsheets.batchUpdate({ 'requests': newSlicersRequest }, ssId);
+    Sheets.Spreadsheets.batchUpdate({ requests: newSlicersRequest }, ssId);
   
   } catch (e) {
     SpreadsheetApp.getActive().toast(`⚠️ Oops:\n${e.message}.`, '🤖 Reset Slicers says:', -1);
